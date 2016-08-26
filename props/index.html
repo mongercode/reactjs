@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React js lesson 2</title>
+  <script src="https://fb.me/react-0.14.7.js"></script>
+  <script src="https://fb.me/react-dom-0.14.7.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="container">
+
+  </div>
+  <script type="text/babel">
+      var LessonTwo = React.createClass({
+        render: function(){
+          let name = this.props.name + this.props.LastName;
+          let location = this.props.location;
+          let car = this.props.car;
+          return(
+              <div className="main">
+              <ul>
+                <li>Name: <span className="pera">{name}</span></li>
+                <li>location: <span className="pera">{location}</span></li>
+                <li>Have a car?: <span className="pera">{car}</span></li>
+              </ul>
+            </div>
+          );
+        }
+      });
+      ReactDOM.render(
+        <LessonTwo name="Guddu" LastName=" Parathe Wala" location = "Delhi Parathe wali gali" car = "No"/>,
+        document.getElementById('container')
+      );
+  </script>
+</body>
+</html>

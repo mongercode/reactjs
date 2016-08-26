@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React js lesson 3</title>
+  <script src="https://fb.me/react-0.14.7.js"></script>
+  <script src="https://fb.me/react-dom-0.14.7.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="container">
+
+  </div>
+  <script type="text/babel">
+      var LessonThree = React.createClass({
+        nameChange: function(e){
+          this.setState({
+            number: e.target.value
+          });
+        },
+       getInitialState: function(){
+            return{
+            number: ''
+          }
+        },
+        render: function(){
+          return(
+              <div className="main">
+                <input type="text" onChange={this.nameChange}/>
+                <h1>Total of us are {this.state.number}</h1>
+            </div>
+          );
+        }
+      });
+      ReactDOM.render(
+        <LessonThree />,
+        document.getElementById('container')
+      );
+  </script>
+</body>
+</html>

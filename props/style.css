@@ -1,0 +1,17 @@
+body {
+  font-family:cursive;;
+}
+
+.main{
+  font-size:30px;
+  font-weight:bold;
+}
+
+.main span.rota{
+  color:red;
+  font-size:40px;
+}
+
+.pera{
+  color:red;
+}
