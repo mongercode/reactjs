@@ -8,7 +8,7 @@
   <script src="https://fb.me/react-0.14.7.js"></script>
   <script src="https://fb.me/react-dom-0.14.7.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
   <div id="container">
@@ -21,31 +21,37 @@
           count:0
         }
       },
-      AddOne: function(){
+     AddOne: function(){
         this.setState({
           count: this.state.count + 1
-        })
+        });
       },
       AddFive: function(){
-        this.setState({
-          count: this.state.count + 5
-        })
+           this.setState({
+             count: this.state.count + 5
+          });
       },
       AddTen: function(){
-        this.setState({
-          count: this.state.count +10
-        })
+            this.setState({
+               count: this.state.count + 10
+           });
       },
-        render: function(){
-          return(
-            <div>
-              <h1>Count:{this.state.count}</h1>
-              <button onClick={this.AddOne}>Add One</button>
-              <button onClick={this.AddFive}>Add One</button>
-              <button onClick={this.AddTen}>Add One</button>
-            </div>
-          );
-        }
+      clearCounter: function(){
+            this.setState({
+               count: 0
+           });
+      },
+      render: function(){
+        return(
+          <div className="mainDiv">
+            <h1>COUNT: {this.state.count}</h1>
+            <button className="button-one" onClick={this.AddOne}>Add 1</button>
+            <button className="button-two" onClick={this.AddFive}>Add 5</button>
+            <button className="button-three" onClick={this.AddTen}>Add 10</button>
+            <button className="button-clear" onClick={this.clearCounter}> Clear </button>
+          </div>
+        );
+      }
       });
       ReactDOM.render(
         <CounterChallenge />,
