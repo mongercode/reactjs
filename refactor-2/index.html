@@ -45,12 +45,11 @@
             <button className="button-one" onClick={this.IncrementCount.bind(this, this.props.valueOne)}>{this.props.valueOne}</button>
             <button className="button-two" onClick={this.IncrementCount.bind(this, this.props.valueTwo)}>{this.props.valueTwo}</button>
             <button className="button-three" onClick={this.IncrementCount.bind(this, this.props.valueThree)}>{this.props.valueThree}</button>
-            <button className="button-clear" onClick={this.clearCounter}> Clear </button>
+            <button className="button-clear" onClick={this.clearCounter}> Clear Count </button>
           </div>
         );
       }
       });
-
       ReactDOM.render(
         <CounterChallenge />,
         document.getElementById('container')
