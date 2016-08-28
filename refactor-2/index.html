@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Refactor-2</title>
+  <script src="https://fb.me/react-0.14.7.js"></script>
+  <script src="https://fb.me/react-dom-0.14.7.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="container">
+
+  </div>
+  <script type="text/babel">
+    var CounterChallenge = React.createClass({
+      getInitialState: function(){
+        return{
+          count:0
+        }
+      },
+        IncrementCount: function(value){
+        this.setState({
+          count: this.state.count + value
+        });
+      },
+      clearCounter: function(){
+            this.setState({
+               count: 0
+           });
+      },
+      getDefaultProps:function(){
+        return{
+           valueOne: 1,
+           valueTwo: 5,
+           valueThree: 10
+        }
+      },
+      render: function(){
+        return(
+          <div className="mainDiv">
+            <h1>COUNT: {this.state.count}</h1>
+            <button className="button-one" onClick={this.IncrementCount.bind(this, this.props.valueOne)}>{this.props.valueOne}</button>
+            <button className="button-two" onClick={this.IncrementCount.bind(this, this.props.valueTwo)}>{this.props.valueTwo}</button>
+            <button className="button-three" onClick={this.IncrementCount.bind(this, this.props.valueThree)}>{this.props.valueThree}</button>
+            <button className="button-clear" onClick={this.clearCounter}> Clear </button>
+          </div>
+        );
+      }
+      });
+
+      ReactDOM.render(
+        <CounterChallenge />,
+        document.getElementById('container')
+      );
+  </script>
+</body>
+</html>
