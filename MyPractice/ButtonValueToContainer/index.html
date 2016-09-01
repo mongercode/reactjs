@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Transfer button value to other container on Click</title>
+  <script src="https://fb.me/react-0.14.7.js"></script>
+  <script src="https://fb.me/react-dom-0.14.7.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+  <style type="text/css">
+  .rota{
+    color:red;
+  }
+
+  </style>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+  <script type="text/babel">
+    var RedBox = React.createClass({
+    getInitialState: function(){
+      return{
+        ParaText: ""
+      }
+    },
+    ParaText: function(value){
+       this.setState({
+         ParaText: value
+       });
+     },
+    getDefaultProps:function(){
+      return{
+        ValueOne: 1,
+        ValueTwo: 2,
+        ValueThree: 3,
+        ValueFour: 4,
+        ValueFive: 5
+       }
+    },
+    render: function(){
+     return(
+       <div className="main">
+         <h1>This Number is <span className="rota">{this.state.ParaText}</span></h1>
+         <Button value={this.props.ValueOne} onHandler={this.ParaText.bind(this, this.props.ValueOne)}/>
+         <Button value={this.props.ValueTwo} onHandler={this.ParaText.bind(this, this.props.ValueTwo)}/>
+         <Button value={this.props.ValueThree} onHandler={this.ParaText.bind(this, this.props.ValueThree)}/>
+         <Button value={this.props.ValueFour} onHandler={this.ParaText.bind(this, this.props.ValueFour)}/>
+         <Button value={this.props.ValueFive} onHandler={this.ParaText.bind(this, this.props.ValueFive)}/>
+      </div>
+     );
+    }
+  });
+
+  var Button = function(props){
+    return(
+      <button value = {props.value} onClick={props.onHandler}>{props.value}</button>
+    );
+  }
+
+  ReactDOM.render(
+    <RedBox />,
+    document.getElementById('app')
+  );
+  </script>
+</body>
+</html>
